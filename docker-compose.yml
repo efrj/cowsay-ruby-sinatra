@@ -7,6 +7,6 @@ services:
     volumes:
       - .:/app
     ports:
-      - "${PORT_MAPPING}"
+      - "${PORT_MAPPING}:4567"
     environment:
       - APP_ENV=development
