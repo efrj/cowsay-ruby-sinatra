@@ -8,8 +8,8 @@ I18n.config.available_locales = [:en, :pt]
 I18n.default_locale = :en
 
 def available_characters
-  cow_files = `cowsay -l`.split("\n")[1..-1].join(" ").split(" ")
-  cow_files.map { |file| File.basename(file, '.cow') }
+  cow_files = `/usr/games/cowsay -l`.split("\n")[1..-1].join(" ").split(" ")
+  cow_files.map { |f| f.gsub('.cow', '') }
 end
 
 get '/' do
@@ -23,7 +23,7 @@ post '/cowsay' do
   escaped_character = Shellwords.escape(character)
 
   if available_characters.include?(escaped_character)
-    @output = `cowsay -f #{escaped_character} "#{escaped_message}"`
+    @output = `/usr/games/cowsay -f #{escaped_character} #{escaped_message}`
   else
     @output = "Desculpe, o personagem '#{escaped_character}' não está disponível."
   end
