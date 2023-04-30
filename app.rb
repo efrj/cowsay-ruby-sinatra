@@ -3,6 +3,7 @@ require 'erb'
 require 'shellwords'
 require 'i18n'
 require 'sinatra/i18n'
+require_relative 'models/cowsay_validator'
 
 I18n.load_path = Dir[File.join(settings.root, 'locales', '*.yml')]
 I18n.config.available_locales = [:en, :pt]
@@ -22,12 +23,15 @@ get '/' do
 end
 
 get '/cowsay_output' do
-  message = params['message']
-  character = params['character']
-  escaped_message = Shellwords.escape(message)
-  escaped_character = Shellwords.escape(character)
+  cowsay_validator = CowsayValidator.new(
+    message: params['message'],
+    character: params['character'],
+    available_characters: available_characters
+  )
 
-  if available_characters.include?(escaped_character)
+  if cowsay_validator.valid?
+    escaped_message = Shellwords.escape(cowsay_validator.message)
+    escaped_character = Shellwords.escape(cowsay_validator.character)
     @output = `/usr/games/cowsay -f #{escaped_character} #{escaped_message}`
   else
     @output = I18n.t('unavailable_character', character: escaped_character)
