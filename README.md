@@ -18,21 +18,21 @@ This project is a simple Sinatra-based web application that uses the `cowsay` pr
 
 git clone https://github.com/your-username/cowsay-webapp.git
 
-Enter the directory:
-
 ``cd cowsay-webapp``
 
-2. Install dependencies:
+2. Copy the .env-example file and save as .env
 
-``bundle install``
+``cp .env-example .env``
+ 
+3. Build the Docker image:
 
-3. Run the application:
+``docker-compose build``
 
-``ruby app.rb``
+4. Run the container:
 
+``docker-compose up``
 
-4. Access the application in your browser at [http://localhost:4567](http://localhost:4567).
-
+5. Access the application in your browser at [http://localhost:4567](http://localhost:4567). 
 
 ## Running the project with Docker
 
@@ -103,16 +103,19 @@ git clone https://github.com/your-username/cowsay-webapp.git
 
 ``cd cowsay-webapp`` 
 
+2. Copie o arquivo .env-example e salve como .env 
+
+``cp .env-example .env``
  
-2. Construa a imagem do Docker: 
+3. Construa a imagem do Docker: 
 
 ``docker-compose build`` 
 
-3. Execute o contêiner: 
+4. Execute o contêiner: 
 
 ``docker-compose up`` 
 
-4. Acesse a aplicação em seu navegador em [http://localhost:4567](http://localhost:4567). 
+5. Acesse a aplicação em seu navegador em [http://localhost:4567](http://localhost:4567). 
 
 ## Personalização 
 
