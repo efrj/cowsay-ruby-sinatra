@@ -2,10 +2,15 @@ require 'sinatra'
 require 'erb'
 require 'shellwords'
 require 'i18n'
+require 'sinatra/i18n'
 
 I18n.load_path = Dir[File.join(settings.root, 'locales', '*.yml')]
 I18n.config.available_locales = [:en, :pt]
 I18n.default_locale = :en
+
+before do
+  I18n.locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first if request.env['HTTP_ACCEPT_LANGUAGE']
+end
 
 def available_characters
   cow_files = `/usr/games/cowsay -l`.split("\n")[1..-1].join(" ").split(" ")

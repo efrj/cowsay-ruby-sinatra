@@ -26,6 +26,7 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.6)
       tilt (~> 2.0)
+    sinatra-i18n (0.1.0)
     thin (1.8.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -39,6 +40,7 @@ DEPENDENCIES
   i18n
   rerun
   sinatra
+  sinatra-i18n
   thin
 
 BUNDLED WITH
