@@ -2,8 +2,10 @@ version: '3'
 
 services:
   web:
-    build: .
-    command: bundle exec ruby app.rb -o 0.0.0.0 -p 4567
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec rerun 'ruby app.rb -o 0.0.0.0 -p 4567' --
     volumes:
       - .:/app
     ports:

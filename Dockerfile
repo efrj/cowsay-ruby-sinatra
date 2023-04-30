@@ -11,4 +11,4 @@ RUN bundle install
 
 COPY . /app
 
-CMD ["bundle", "exec", "ruby", "app.rb", "-o", "0.0.0.0", "-p", "4567"]
+CMD ["bundle", "exec", "rerun", "'ruby app.rb -o 0.0.0.0 -p 4567'", "--"]
