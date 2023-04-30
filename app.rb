@@ -59,53 +59,53 @@ __END__
           <div class="form-group">
             <label for="character"><%= I18n.t('character_label') %>:</label>
             <select id="character" name="character" class="form-control">
-              <option value="default">Vaca(Default)</option>
-              <option value="apt">apt</option>
-              <option value="bud-frogs">bud-frogs</option>
-              <option value="bunny">bunny</option>
-              <option value="calvin">calvin</option>
-              <option value="cheese">cheese</option>
-              <option value="cock">cock</option>
-              <option value="cower">cower</option>
-              <option value="daemon">daemon</option>
-              <option value="dragon">dragon</option>
-              <option value="dragon-and-cow">dragon-and-cow</option>
-              <option value="duck">duck</option>
-              <option value="elephant">elephant</option>
-              <option value="elephant-in-snake">elephant-in-snake</option>
-              <option value="eyes">eyes</option>
-              <option value="flaming-sheep">flaming-sheep</option>
-              <option value="fox">fox</option>
-              <option value="ghostbusters">ghostbusters</option>
-              <option value="gnu">gnu</option>
-              <option value="hellokitty">hellokitty</option>
-              <option value="kangaroo">kangaroo</option>
-              <option value="kiss">kiss</option>
-              <option value="koala">koala</option>
-              <option value="kosh">kosh</option>
-              <option value="luke-koala">luke-koala</option>
-              <option value="mech-and-cow">mech-and-cow</option>
-              <option value="milk">milk</option>
-              <option value="moofasa">moofasa</option>
-              <option value="moose">moose</option>
-              <option value="pony">pony</option>
-              <option value="pony-smaller">pony-smaller</option>
-              <option value="ren">ren</option>
-              <option value="sheep">sheep</option>
-              <option value="skeleton">skeleton</option>
-              <option value="snowman">snowman</option>
-              <option value="stegosaurus">stegosaurus</option>
-              <option value="stimpy">stimpy</option>
-              <option value="suse">suse</option>
-              <option value="three-eyes">three-eyes</option>
-              <option value="turkey">turkey</option>
-              <option value="turtle">turtle</option>
-              <option value="tux">tux</option>
-              <option value="unipony">unipony</option>
-              <option value="unipony-smaller">unipony-smaller</option>
-              <option value="vader">vader</option>
-              <option value="vader-koala">vader-koala</option>
-              <option value="www">www</option>
+              <option value="default"><%= I18n.t('characters.cow') %></option>
+              <option value="apt"><%= I18n.t('characters.apt') %></option>
+              <option value="bud-frogs"><%= I18n.t('characters.bud_frogs') %></option>
+              <option value="bunny"><%= I18n.t('characters.bunny') %></option>
+              <option value="calvin"><%= I18n.t('characters.calvin') %></option>
+              <option value="cheese"><%= I18n.t('characters.cheese') %></option>
+              <option value="cock"><%= I18n.t('characters.cock') %></option>
+              <option value="cower"><%= I18n.t('characters.cower') %></option>
+              <option value="daemon"><%= I18n.t('characters.daemon') %></option>
+              <option value="dragon"><%= I18n.t('characters.dragon') %></option>
+              <option value="dragon-and-cow"><%= I18n.t('characters.dragon_and_cow') %></option>
+              <option value="duck"><%= I18n.t('characters.duck') %></option>
+              <option value="elephant"><%= I18n.t('characters.elephant') %></option>
+              <option value="elephant-in-snake"><%= I18n.t('characters.elephant_in_snake') %></option>
+              <option value="eyes"><%= I18n.t('characters.eyes') %></option>
+              <option value="flaming-sheep"><%= I18n.t('characters.flaming_sheep') %></option>
+              <option value="fox"><%= I18n.t('characters.fox') %></option>
+              <option value="ghostbusters"><%= I18n.t('characters.ghostbusters') %></option>
+              <option value="gnu"><%= I18n.t('characters.gnu') %></option>
+              <option value="hellokitty"><%= I18n.t('characters.hellokitty') %></option>
+              <option value="kangaroo"><%= I18n.t('characters.kangaroo') %></option>
+              <option value="kiss"><%= I18n.t('characters.kiss') %></option>
+              <option value="koala"><%= I18n.t('characters.koala') %></option>
+              <option value="kosh"><%= I18n.t('characters.kosh') %></option>
+              <option value="luke-koala"><%= I18n.t('characters.luke_koala') %></option>
+              <option value="mech-and-cow"><%= I18n.t('characters.mech_and_cow') %></option>
+              <option value="milk"><%= I18n.t('characters.milk') %></option>
+              <option value="moofasa"><%= I18n.t('characters.moofasa') %></option>
+              <option value="moose"><%= I18n.t('characters.moose') %></option>
+              <option value="pony"><%= I18n.t('characters.pony') %></option>
+              <option value="pony-smaller"><%= I18n.t('characters.pony_smaller') %></option>
+              <option value="ren"><%= I18n.t('characters.ren') %></option>
+              <option value="sheep"><%= I18n.t('characters.sheep') %></option>
+              <option value="skeleton"><%= I18n.t('characters.skeleton') %></option>
+              <option value="snowman"><%= I18n.t('characters.snowman') %></option>
+              <option value="stegosaurus"><%= I18n.t('characters.stegosaurus') %></option>
+              <option value="stimpy"><%= I18n.t('characters.stimpy') %></option>
+              <option value="suse"><%= I18n.t('characters.suse') %></option>
+              <option value="three-eyes"><%= I18n.t('characters.three_eyes') %></option>
+              <option value="turkey"><%= I18n.t('characters.turkey') %></option>
+              <option value="turtle"><%= I18n.t('characters.turtle') %></option>
+              <option value="tux"><%= I18n.t('characters.tux') %></option>
+              <option value="unipony"><%= I18n.t('characters.unipony') %></option>
+              <option value="unipony-smaller"><%= I18n.t('characters.unipony_smaller') %></option>
+              <option value="vader"><%= I18n.t('characters.vader') %></option>
+              <option value="vader-koala"><%= I18n.t('characters.vader_koala') %></option>
+              <option value="www"><%= I18n.t('characters.www') %></option>            
             </select>
           </div>
           <button type="submit" class="btn btn-primary"><%= I18n.t('submit_button') %></button>

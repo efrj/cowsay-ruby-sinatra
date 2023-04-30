@@ -4,3 +4,51 @@ en:
   character_label: "Character"
   submit_button: "Submit"
   unavailable_character: "Sorry, the character '%{character}' is not available."
+  characters:
+    apt: APT
+    bud_frogs: Bud Frogs
+    bunny: Bunny
+    calvin: Calvin
+    cheese: Cheese
+    cock: Cock
+    cow: Cow (default)
+    cower: Cower
+    daemon: Daemon
+    dragon: Dragon
+    dragon_and_cow: Dragon and Cow
+    duck: Duck
+    elephant: Elephant
+    elephant_in_snake: Elephant in Snake
+    eyes: Eyes
+    flaming_sheep: Flaming Sheep
+    fox: Fox
+    ghostbusters: Ghostbusters
+    gnu: GNU
+    hellokitty: Hello Kitty
+    kangaroo: Kangaroo
+    kiss: Kiss
+    koala: Koala
+    kosh: Kosh
+    luke_koala: Luke Koala
+    mech_and_cow: Mech and Cow
+    milk: Milk
+    moofasa: Moofasa
+    moose: Moose
+    pony: Pony
+    pony_smaller: Pony Smaller
+    ren: Ren
+    sheep: Sheep
+    skeleton: Skeleton
+    snowman: Snowman
+    stegosaurus: Stegosaurus
+    stimpy: Stimpy
+    suse: SUSE
+    three_eyes: Three Eyes
+    turkey: Turkey
+    turtle: Turtle
+    tux: Tux
+    unipony: Unipony
+    unipony_smaller: Unipony Smaller
+    vader: Vader
+    vader_koala: Vader Koala
+    www: WWW
