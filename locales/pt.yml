@@ -1,5 +1,6 @@
 pt:
   title: "Cowsay com Ruby e Sinatra"
-  message_label: "Mensagem:"
-  character_label: "Personagem:"
+  message_label: "Mensagem"
+  character_label: "Personagem"
   submit_button: "Enviar"
+  unavailable_character: "Desculpe, o personagem '%{character}' não está disponível."
