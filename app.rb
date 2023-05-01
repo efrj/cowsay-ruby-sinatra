@@ -14,10 +14,6 @@ before do
   I18n.locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first if request.env['HTTP_ACCEPT_LANGUAGE']
 end
 
-def available_characters
-  CowsayCharacters.available_characters
-end
-
 get '/' do
   erb :index
 end
@@ -26,7 +22,7 @@ get '/cowsay_output' do
   cowsay_validator = CowsayValidator.new(
     message: params['message'],
     character: params['character'],
-    available_characters: available_characters
+    available_characters: CowsayCharacters.available_characters
   )
 
   if cowsay_validator.valid?

@@ -5,6 +5,7 @@ gem 'thin'
 gem 'i18n'
 gem 'sinatra-i18n'
 gem 'rspec'
+gem 'rack-test'
 
 group :development do
   gem 'rerun'

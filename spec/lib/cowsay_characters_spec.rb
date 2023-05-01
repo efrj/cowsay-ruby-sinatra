@@ -1,4 +1,3 @@
-# spec/lib/cowsay_characters_spec.rb
 require_relative '../../lib/cowsay_characters'
 
 describe CowsayCharacters do
