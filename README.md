@@ -8,7 +8,7 @@ This project is a simple Sinatra-based web application that uses the `cowsay` pr
 
 ## Prerequisites
 
-- Ruby 2.7 or higher
+- Ruby 3.2 or higher
 - Bundler
 - Cowsay (For running locally without Docker. Check how to install Cowsay on your Linux distribution or see more information on the official website: https://cowsay.diamonds)
 
@@ -19,29 +19,6 @@ This project is a simple Sinatra-based web application that uses the `cowsay` pr
 git clone https://github.com/your-username/cowsay-webapp.git
 
 ``cd cowsay-webapp``
-
-2. Copy the .env-example file and save as .env
-
-``cp .env-example .env``
- 
-3. Build the Docker image:
-
-``docker-compose build``
-
-4. Run the container:
-
-``docker-compose up``
-
-5. Access the application in your browser at [http://localhost:4567](http://localhost:4567). 
-
-## Running the project with Docker
-
-1. Clone the repository:
-
-git clone https://github.com/your-username/cowsay-webapp.git
-
-``cd cowsay-webapp``
-
  
 2. Build the Docker image:
 
@@ -51,7 +28,29 @@ git clone https://github.com/your-username/cowsay-webapp.git
 
 ``docker-compose up``
 
-4. Access the application in your browser at [http://localhost:4567](http://localhost:4567).
+4. Access the application in your browser at [http://localhost:4567](http://localhost:4567). 
+
+## Running the project with Docker
+
+1. Clone the repository: 
+
+git clone https://github.com/your-username/cowsay-webapp.git
+
+``cd cowsay-webapp`` 
+
+2. Copy the .env-example file and save as .env
+
+``cp .env-example .env`` 
+
+3. Build the Docker image:
+
+``docker-compose build``
+
+4. Run the container:
+
+``docker-compose up``
+
+5. Access the application in your browser at [http://localhost:4567](http://localhost:4567).
 
 ## Personalization
 
@@ -69,7 +68,7 @@ Este projeto é uma aplicação web simples baseada no Sinatra que utiliza o pro
 
 ## Pré-requisitos
 
-- Ruby 2.7 ou superior
+- Ruby 3.2 ou superior
 - Bundler
 - Cowsay (Para execução local sem Docker. Verifique como instalar o Cowsay na sua distribução Linux ou veja mais informações no site oficial: https://cowsay.diamonds)
 
