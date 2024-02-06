@@ -26,17 +26,19 @@ git clone git@github.com:efrj/cowsay-ruby-sinatra.git
 
 git clone https://github.com/efrj/cowsay-ruby-sinatra.git 
 
+2. Go to the directory you just cloned 
+
 ``cd cowsay-ruby-sinatra``
- 
-2. Build the Docker image:
 
-``docker-compose build``
+3. Instale as dependências: 
 
-3. Run the container:
+``bundle install`` 
 
-``docker-compose up``
+4. Execute a aplicação: 
 
-4. Access the application in your browser at [http://localhost:4567](http://localhost:4567). 
+``ruby app.rb`` 
+
+5. Access the application in your browser at [http://localhost:4567](http://localhost:4567). 
 
 ## Running the project with Docker
 
@@ -50,21 +52,23 @@ git clone git@github.com:efrj/cowsay-ruby-sinatra.git
 
 git clone https://github.com/efrj/cowsay-ruby-sinatra.git 
 
+2. Go to the directory you just cloned 
+
 ``cd cowsay-ruby-sinatra`` 
 
-2. Copy the .env-example file and save as .env
+3. Copy the .env-example file and save as .env
 
 ``cp .env-example .env`` 
 
-3. Build the Docker image:
+4. Build the Docker image:
 
 ``docker-compose build``
 
-4. Run the container:
+5. Run the container:
 
 ``docker-compose up``
 
-5. Access the application in your browser at [http://localhost:4567](http://localhost:4567).
+6. Access the application in your browser at [http://localhost:4567](http://localhost:4567).
 
 ## Personalization
 
@@ -88,7 +92,7 @@ Este projeto é uma aplicação web simples baseada no Sinatra que utiliza o pro
 
 ## Executando o projeto sem Docker
 
-1. Clone o repositório:
+1. Faça o clone do repositório:
 
 #### Clonar via SSH 
 
@@ -98,25 +102,24 @@ git clone git@github.com:efrj/cowsay-ruby-sinatra.git
 
 git clone https://github.com/efrj/cowsay-ruby-sinatra.git 
 
-Entre no diretório:
+2. Entre no diretório: 
 
 ``cd cowsay-ruby-sinatra``
 
-2. Instale as dependências: 
+3. Instale as dependências: 
 
 ``bundle install`` 
 
-3. Execute a aplicação: 
+4. Execute a aplicação: 
 
 ``ruby app.rb`` 
 
-
-4. Acesse a aplicação em seu navegador em [http://localhost:4567](http://localhost:4567). 
+5. Acesse a aplicação em seu navegador em [http://localhost:4567](http://localhost:4567). 
 
 
 ## Executando o projeto com Docker 
 
-1. Clone o repositório: 
+1. Faça o clone do repositório: 
 
 #### Clonar via SSH 
 
@@ -126,26 +129,28 @@ git clone git@github.com:efrj/cowsay-ruby-sinatra.git
 
 git clone https://github.com/efrj/cowsay-ruby-sinatra.git 
 
+2. Entre no diretório: 
+
 ``cd cowsay-ruby-sinatra`` 
 
-2. Copie o arquivo .env-example e salve como .env 
+3. Copie o arquivo .env-example e salve como .env 
 
 ``cp .env-example .env``
  
-3. Construa a imagem do Docker: 
+4. Construa a imagem do Docker: 
 
 ``docker-compose build`` 
 
-4. Execute o contêiner: 
+5. Execute o contêiner: 
 
 ``docker-compose up`` 
 
-5. Acesse a aplicação em seu navegador em [http://localhost:4567](http://localhost:4567). 
+6. Acesse a aplicação em seu navegador em [http://localhost:4567](http://localhost:4567). 
 
 ## Personalização 
 
 Se você deseja mapear a porta 4567 para outra porta ao executar o projeto com Docker, modifique o valor da variável `PORT_MAPPING` no arquivo `.env`. Por exemplo, para mapear a porta 4567 para a porta 8080, altere o valor para `PORT_MAPPING=8080`.
 
-## Licença
+## Licença 
 
 Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
