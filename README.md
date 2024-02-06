@@ -30,17 +30,17 @@ git clone https://github.com/efrj/cowsay-ruby-sinatra.git
 
 ``cd cowsay-ruby-sinatra``
 
-3. Instale as dependências: 
+3. Install dependencies: 
 
 ``bundle install`` 
 
-4. Execute a aplicação: 
+4. Run the application: 
 
 ``ruby app.rb`` 
 
 5. Access the application in your browser at [http://localhost:4567](http://localhost:4567). 
 
-## Running the project with Docker
+## Running the project with Docker 
 
 1. Clone the repository: 
 
@@ -56,21 +56,21 @@ git clone https://github.com/efrj/cowsay-ruby-sinatra.git
 
 ``cd cowsay-ruby-sinatra`` 
 
-3. Copy the .env-example file and save as .env
+3. Copy the .env-example file and save as .env 
 
 ``cp .env-example .env`` 
 
-4. Build the Docker image:
+4. Build the Docker image: 
 
-``docker-compose build``
+``docker-compose build`` 
 
-5. Run the container:
+5. Run the container: 
 
-``docker-compose up``
+``docker-compose up`` 
 
-6. Access the application in your browser at [http://localhost:4567](http://localhost:4567).
+6. Access the application in your browser at [http://localhost:4567](http://localhost:4567). 
 
-## Personalization
+## Personalization 
 
 If you want to map port 4567 to another port when running the project with Docker, modify the value of the `PORT_MAPPING` variable in the `.env` file. For example, to map port 4567 to port 8080, change the value to `PORT_MAPPING=8080`.
 
@@ -78,21 +78,21 @@ If you want to map port 4567 to another port when running the project with Docke
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Instruções em Português
+## Instruções em Português 
 
-Este projeto é uma aplicação web simples baseada no Sinatra que utiliza o programa `cowsay` para gerar mensagens de texto com personagens ASCII. O usuário pode fornecer uma mensagem e selecionar um personagem. A aplicação, então, exibe a mensagem gerada pelo `cowsay` com o personagem escolhido.
+Este projeto é uma aplicação web simples baseada no Sinatra que utiliza o programa `cowsay` para gerar mensagens de texto com personagens ASCII. O usuário pode fornecer uma mensagem e selecionar um personagem. A aplicação, então, exibe a mensagem gerada pelo `cowsay` com o personagem escolhido. 
 
-![Captura de tela da aplicação](images/readme-pt.png)
+![Captura de tela da aplicação](images/readme-pt.png) 
 
-## Pré-requisitos
+## Pré-requisitos 
 
-- Ruby 3.2 ou superior
-- Bundler
-- Cowsay (Para execução local sem Docker. Verifique como instalar o Cowsay na sua distribução Linux ou veja mais informações no site oficial: https://cowsay.diamonds)
+- Ruby 3.2 ou superior 
+- Bundler 
+- Cowsay (Para execução local sem Docker. Verifique como instalar o Cowsay na sua distribução Linux ou veja mais informações no site oficial: https://cowsay.diamonds) 
 
-## Executando o projeto sem Docker
+## Executando o projeto sem Docker 
 
-1. Faça o clone do repositório:
+1. Faça o clone do repositório: 
 
 #### Clonar via SSH 
 
@@ -104,7 +104,7 @@ git clone https://github.com/efrj/cowsay-ruby-sinatra.git
 
 2. Entre no diretório: 
 
-``cd cowsay-ruby-sinatra``
+``cd cowsay-ruby-sinatra`` 
 
 3. Instale as dependências: 
 
@@ -135,7 +135,7 @@ git clone https://github.com/efrj/cowsay-ruby-sinatra.git
 
 3. Copie o arquivo .env-example e salve como .env 
 
-``cp .env-example .env``
+``cp .env-example .env`` 
  
 4. Construa a imagem do Docker: 
 
