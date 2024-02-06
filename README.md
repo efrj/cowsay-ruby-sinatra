@@ -16,11 +16,17 @@ This project is a simple Sinatra-based web application that uses the `cowsay` pr
 
 ## Running the project without Docker
 
-1. Clone the repository:
+1. Clone the repository: 
 
-git clone https://github.com/your-username/cowsay-webapp.git
+#### Clone over SSH 
 
-``cd cowsay-webapp``
+git clone git@github.com:efrj/cowsay-ruby-sinatra.git 
+
+#### Clone over HTTPS 
+
+git clone https://github.com/efrj/cowsay-ruby-sinatra.git 
+
+``cd cowsay-ruby-sinatra``
  
 2. Build the Docker image:
 
@@ -36,9 +42,15 @@ git clone https://github.com/your-username/cowsay-webapp.git
 
 1. Clone the repository: 
 
-git clone https://github.com/your-username/cowsay-webapp.git
+#### Clone over SSH 
 
-``cd cowsay-webapp`` 
+git clone git@github.com:efrj/cowsay-ruby-sinatra.git 
+
+#### Clone over HTTPS 
+
+git clone https://github.com/efrj/cowsay-ruby-sinatra.git 
+
+``cd cowsay-ruby-sinatra`` 
 
 2. Copy the .env-example file and save as .env
 
@@ -78,11 +90,17 @@ Este projeto é uma aplicação web simples baseada no Sinatra que utiliza o pro
 
 1. Clone o repositório:
 
-git clone https://github.com/your-username/cowsay-webapp.git 
+#### Clonar via SSH 
+
+git clone git@github.com:efrj/cowsay-ruby-sinatra.git 
+
+#### Clonar via HTTPS 
+
+git clone https://github.com/efrj/cowsay-ruby-sinatra.git 
 
 Entre no diretório:
 
-``cd cowsay-webapp``
+``cd cowsay-ruby-sinatra``
 
 2. Instale as dependências: 
 
@@ -100,9 +118,15 @@ Entre no diretório:
 
 1. Clone o repositório: 
 
-git clone https://github.com/your-username/cowsay-webapp.git 
+#### Clonar via SSH 
 
-``cd cowsay-webapp`` 
+git clone git@github.com:efrj/cowsay-ruby-sinatra.git 
+
+#### Clonar via HTTPS 
+
+git clone https://github.com/efrj/cowsay-ruby-sinatra.git 
+
+``cd cowsay-ruby-sinatra`` 
 
 2. Copie o arquivo .env-example e salve como .env 
 
