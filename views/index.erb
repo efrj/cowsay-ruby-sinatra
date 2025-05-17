@@ -1,90 +1,276 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
-<head>
-  <meta charset="UTF-8">
-  <title><%= I18n.t('title') %></title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container">
-    <h1 class="my-4"><%= I18n.t('title') %></h1>
-    <div class="row">
-      <div class="col-md-4">
-        <form id="cowsayForm" onsubmit="return submitForm();" class="mb-4">
-          <div class="form-group">
-            <label for="message"><%= I18n.t('message_label') %>:</label>
-            <textarea id="message" name="message" class="form-control" required></textarea>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= I18n.t('title') %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+      --primary-color: #6c5ce7;
+      --secondary-color: #a29bfe;
+      --accent-color: #fd79a8;
+      --dark-color: #2d3436;
+      --light-color: #f8f9fa;
+      }
+      body {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      padding-bottom: 40px;
+      }
+      .app-title {
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 30px;
+      border-bottom: 3px solid var(--secondary-color);
+      padding-bottom: 15px;
+      }
+      .card {
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      }
+      .card:hover {
+      transform: translateY(-5px);
+      }
+      .card-header {
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 15px 15px 0 0 !important;
+      font-weight: 600;
+      padding: 15px 20px;
+      }
+      .form-control, .form-select {
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid #ced4da;
+      transition: border 0.3s;
+      }
+      .form-control:focus, .form-select:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+      }
+      .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-weight: 600;
+      transition: all 0.3s;
+      }
+      .btn-primary:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+      transform: scale(1.05);
+      }
+      .modal-content {
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .modal-header {
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 15px 15px 0 0;
+      }
+      .modal-body {
+      padding: 25px;
+      }
+      .ascii-art {
+      font-family: monospace;
+      white-space: pre-wrap;
+      background-color: #2d3436;
+      color: #dfe6e9;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      }
+      .character-preview {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f2f6;
+      border-radius: 10px;
+      margin-top: 20px;
+      }
+      .character-preview img {
+      max-width: 100px;
+      margin-bottom: 10px;
+      }
+      .footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #636e72;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="app-title text-center"><i class="fas fa-comment-dots me-2"></i><%= I18n.t('title') %></h1>
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="card mb-4">
+            <div class="card-header">
+              <i class="fas fa-terminal me-2"></i><%= I18n.t('create_message') %>
+            </div>
+            <div class="card-body">
+              <form id="cowsayForm" onsubmit="return submitForm();">
+                <div class="mb-3">
+                  <label for="message" class="form-label"><i class="fas fa-pencil-alt me-2"></i><%= I18n.t('message_label') %>:</label>
+                  <textarea id="message" name="message" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="character" class="form-label"><i class="fas fa-smile me-2"></i><%= I18n.t('character_label') %>:</label>
+                  <select id="character" name="character" class="form-select">
+                    <option value="default"><%= I18n.t('characters.cow') %></option>
+                    <option value="apt"><%= I18n.t('characters.apt') %></option>
+                    <option value="bud-frogs"><%= I18n.t('characters.bud_frogs') %></option>
+                    <option value="bunny"><%= I18n.t('characters.bunny') %></option>
+                    <option value="calvin"><%= I18n.t('characters.calvin') %></option>
+                    <option value="cheese"><%= I18n.t('characters.cheese') %></option>
+                    <option value="cock"><%= I18n.t('characters.cock') %></option>
+                    <option value="cower"><%= I18n.t('characters.cower') %></option>
+                    <option value="daemon"><%= I18n.t('characters.daemon') %></option>
+                    <option value="dragon"><%= I18n.t('characters.dragon') %></option>
+                    <option value="dragon-and-cow"><%= I18n.t('characters.dragon_and_cow') %></option>
+                    <option value="duck"><%= I18n.t('characters.duck') %></option>
+                    <option value="elephant"><%= I18n.t('characters.elephant') %></option>
+                    <option value="elephant-in-snake"><%= I18n.t('characters.elephant_in_snake') %></option>
+                    <option value="eyes"><%= I18n.t('characters.eyes') %></option>
+                    <option value="flaming-sheep"><%= I18n.t('characters.flaming_sheep') %></option>
+                    <option value="fox"><%= I18n.t('characters.fox') %></option>
+                    <option value="ghostbusters"><%= I18n.t('characters.ghostbusters') %></option>
+                    <option value="gnu"><%= I18n.t('characters.gnu') %></option>
+                    <option value="hellokitty"><%= I18n.t('characters.hellokitty') %></option>
+                    <option value="kangaroo"><%= I18n.t('characters.kangaroo') %></option>
+                    <option value="kiss"><%= I18n.t('characters.kiss') %></option>
+                    <option value="koala"><%= I18n.t('characters.koala') %></option>
+                    <option value="kosh"><%= I18n.t('characters.kosh') %></option>
+                    <option value="luke-koala"><%= I18n.t('characters.luke_koala') %></option>
+                    <option value="mech-and-cow"><%= I18n.t('characters.mech_and_cow') %></option>
+                    <option value="milk"><%= I18n.t('characters.milk') %></option>
+                    <option value="moofasa"><%= I18n.t('characters.moofasa') %></option>
+                    <option value="moose"><%= I18n.t('characters.moose') %></option>
+                    <option value="pony"><%= I18n.t('characters.pony') %></option>
+                    <option value="pony-smaller"><%= I18n.t('characters.pony_smaller') %></option>
+                    <option value="ren"><%= I18n.t('characters.ren') %></option>
+                    <option value="sheep"><%= I18n.t('characters.sheep') %></option>
+                    <option value="skeleton"><%= I18n.t('characters.skeleton') %></option>
+                    <option value="snowman"><%= I18n.t('characters.snowman') %></option>
+                    <option value="stegosaurus"><%= I18n.t('characters.stegosaurus') %></option>
+                    <option value="stimpy"><%= I18n.t('characters.stimpy') %></option>
+                    <option value="suse"><%= I18n.t('characters.suse') %></option>
+                    <option value="three-eyes"><%= I18n.t('characters.three_eyes') %></option>
+                    <option value="turkey"><%= I18n.t('characters.turkey') %></option>
+                    <option value="turtle"><%= I18n.t('characters.turtle') %></option>
+                    <option value="tux"><%= I18n.t('characters.tux') %></option>
+                    <option value="unipony"><%= I18n.t('characters.unipony') %></option>
+                    <option value="unipony-smaller"><%= I18n.t('characters.unipony_smaller') %></option>
+                    <option value="vader"><%= I18n.t('characters.vader') %></option>
+                    <option value="vader-koala"><%= I18n.t('characters.vader_koala') %></option>
+                    <option value="www"><%= I18n.t('characters.www') %></option>
+                  </select>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-magic me-2"></i><%= I18n.t('submit_button') %>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="character"><%= I18n.t('character_label') %>:</label>
-            <select id="character" name="character" class="form-control">
-              <option value="default"><%= I18n.t('characters.cow') %></option>
-              <option value="apt"><%= I18n.t('characters.apt') %></option>
-              <option value="bud-frogs"><%= I18n.t('characters.bud_frogs') %></option>
-              <option value="bunny"><%= I18n.t('characters.bunny') %></option>
-              <option value="calvin"><%= I18n.t('characters.calvin') %></option>
-              <option value="cheese"><%= I18n.t('characters.cheese') %></option>
-              <option value="cock"><%= I18n.t('characters.cock') %></option>
-              <option value="cower"><%= I18n.t('characters.cower') %></option>
-              <option value="daemon"><%= I18n.t('characters.daemon') %></option>
-              <option value="dragon"><%= I18n.t('characters.dragon') %></option>
-              <option value="dragon-and-cow"><%= I18n.t('characters.dragon_and_cow') %></option>
-              <option value="duck"><%= I18n.t('characters.duck') %></option>
-              <option value="elephant"><%= I18n.t('characters.elephant') %></option>
-              <option value="elephant-in-snake"><%= I18n.t('characters.elephant_in_snake') %></option>
-              <option value="eyes"><%= I18n.t('characters.eyes') %></option>
-              <option value="flaming-sheep"><%= I18n.t('characters.flaming_sheep') %></option>
-              <option value="fox"><%= I18n.t('characters.fox') %></option>
-              <option value="ghostbusters"><%= I18n.t('characters.ghostbusters') %></option>
-              <option value="gnu"><%= I18n.t('characters.gnu') %></option>
-              <option value="hellokitty"><%= I18n.t('characters.hellokitty') %></option>
-              <option value="kangaroo"><%= I18n.t('characters.kangaroo') %></option>
-              <option value="kiss"><%= I18n.t('characters.kiss') %></option>
-              <option value="koala"><%= I18n.t('characters.koala') %></option>
-              <option value="kosh"><%= I18n.t('characters.kosh') %></option>
-              <option value="luke-koala"><%= I18n.t('characters.luke_koala') %></option>
-              <option value="mech-and-cow"><%= I18n.t('characters.mech_and_cow') %></option>
-              <option value="milk"><%= I18n.t('characters.milk') %></option>
-              <option value="moofasa"><%= I18n.t('characters.moofasa') %></option>
-              <option value="moose"><%= I18n.t('characters.moose') %></option>
-              <option value="pony"><%= I18n.t('characters.pony') %></option>
-              <option value="pony-smaller"><%= I18n.t('characters.pony_smaller') %></option>
-              <option value="ren"><%= I18n.t('characters.ren') %></option>
-              <option value="sheep"><%= I18n.t('characters.sheep') %></option>
-              <option value="skeleton"><%= I18n.t('characters.skeleton') %></option>
-              <option value="snowman"><%= I18n.t('characters.snowman') %></option>
-              <option value="stegosaurus"><%= I18n.t('characters.stegosaurus') %></option>
-              <option value="stimpy"><%= I18n.t('characters.stimpy') %></option>
-              <option value="suse"><%= I18n.t('characters.suse') %></option>
-              <option value="three-eyes"><%= I18n.t('characters.three_eyes') %></option>
-              <option value="turkey"><%= I18n.t('characters.turkey') %></option>
-              <option value="turtle"><%= I18n.t('characters.turtle') %></option>
-              <option value="tux"><%= I18n.t('characters.tux') %></option>
-              <option value="unipony"><%= I18n.t('characters.unipony') %></option>
-              <option value="unipony-smaller"><%= I18n.t('characters.unipony_smaller') %></option>
-              <option value="vader"><%= I18n.t('characters.vader') %></option>
-              <option value="vader-koala"><%= I18n.t('characters.vader_koala') %></option>
-              <option value="www"><%= I18n.t('characters.www') %></option>            
-            </select>
+          <div class="character-preview">
+            <h5><i class="fas fa-info-circle me-2"></i><%= I18n.t('character_info') %></h5>
+            <p><%= I18n.t('select_character') %></p>
           </div>
-          <button type="submit" class="btn btn-primary"><%= I18n.t('submit_button') %></button>
-        </form>
-      </div>
-      <div class="col-md-8">
-        <iframe id="cowsayOutput" width="100%" height="400" frameborder="0" class="border"></iframe>
+          <div class="footer">
+            <p>Cowsay ASCII Art Generator &copy; <%= Time.now.year %> | Powered by EFRJ</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
+    
+    <div class="modal fade" id="cowsayModal" tabindex="-1" aria-labelledby="cowsayModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cowsayModalLabel"><i class="fas fa-hat-cowboy me-2"></i><%= I18n.t('cowsay_result') %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="modalOutput" class="ascii-art"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times me-2"></i><%= I18n.t('close') %></button>
+            <button type="button" class="btn btn-primary" id="copyButton"><i class="fas fa-copy me-2"></i><%= I18n.t('copy') %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const cowsayModal = new bootstrap.Modal(document.getElementById('cowsayModal'), {
+      keyboard: true,
+      backdrop: true
+    });
     function submitForm() {
       const form = document.getElementById("cowsayForm");
-      const iframe = document.getElementById("cowsayOutput");
-      iframe.src = `/cowsay_output?message=${encodeURIComponent(form.message.value)}&character=${encodeURIComponent(form.character.value)}`;
+      const message = form.message.value;
+      const character = form.character.value;
+      const selectedOption = form.character.options[form.character.selectedIndex];
+      const character_title = selectedOption.text;
+
+      document.getElementById('modalOutput').innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><p class="mt-2">Gerando arte ASCII...</p></div>';
+      cowsayModal.show();
+
+      fetch(`/cowsay_output?message=${encodeURIComponent(message)}&character=${encodeURIComponent(character)}`)
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const output = doc.body.textContent.trim();
+          document.getElementById('modalOutput').textContent = output;
+          document.getElementById('cowsayModalLabel').innerHTML = `<i class="fas fa-hat-cowboy me-2"></i>${character_title} ${I18n.t('says')}`;
+        })
+        .catch(error => {
+          document.getElementById('modalOutput').innerHTML = `<div class="alert alert-danger">Erro: ${error.message}</div>`;
+        });
+
       return false;
     }
-  </script>
-</body>
+
+    document.getElementById('copyButton').addEventListener('click', function () {
+      const output = document.getElementById('modalOutput').textContent;
+      navigator.clipboard.writeText(output)
+        .then(() => {
+          const originalText = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-check me-2"></i><%= I18n.t('copied') %>';
+          setTimeout(() => {
+            this.innerHTML = originalText;
+          }, 2000);
+        })
+        .catch(err => {
+          console.error('Error copying: ', err);
+        });
+    });
+
+    const I18n = {
+      t: function (key) {
+        const translations = {
+          'says': '<%= I18n.t('says') %>',
+          'close': '<%= I18n.t('close') %>',
+          'copy': '<%= I18n.t('copy') %>',
+          'copied': '<%= I18n.t('copied') %>',
+          'cowsay_result': '<%= I18n.t('cowsay_result') %>',
+          'character_info': '<%= I18n.t('character_info') %>',
+          'select_character': '<%= I18n.t('select_character') %>'
+        };
+        return translations[key] || key;
+      }
+    };
+    </script>
+  </body>
 </html>
