@@ -2,8 +2,17 @@ pt:
   title: "Cowsay com Ruby e Sinatra"
   message_label: "Mensagem"
   character_label: "Personagem"
-  submit_button: "Enviar"
   unavailable_character: "Desculpe, o personagem '%{character}' não está disponível."
+  submit_button: "Gerar Arte ASCII"
+  create_message: "Crie Sua Mensagem em Arte ASCII"
+  cowsay_result: "Resultado da Arte ASCII"
+  unavailable_character: "Personagem '%{character}' não está disponível"
+  says: "diz"
+  close: "Fechar"
+  copy: "Copiar para Área de Transferência"
+  copied: "Copiado!"
+  character_info: "Informações do Personagem"
+  select_character: "Selecione um personagem no menu para ver sua arte ASCII"
   characters:
     apt: APT
     bud_frogs: Bud Sapos
